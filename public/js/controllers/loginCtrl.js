@@ -1,9 +1,34 @@
 'use strict';
-app.controller("loginCtrl", function($scope){
+app.controller("loginCtrl", function($scope, $location, sessionControl){
 	$scope.saludo="Hola";     
 	var db = firebase.database();
-	var authfb = firebase.auth();
-	var provider = new firebase.auth.GoogleAuthProvider();
+
+	$scope.user={
+		uid:'',
+		nombres:'',
+		apellidos:'',
+		empresa:'',
+		numero_contacto:'',
+		correo:'',
+		contrasena:''
+	}
+
+	$scope.login= {
+		correo:'tony2006cg@gmail.com',
+		contrasena:'password'
+	};
+
+	$scope.loginUser = function () {
+		var loginData = $scope.login;
+		sessionControl.sigIn(loginData);
+	}
+	
+	$scope.logoutUser = function () {
+		sessionControl.signOut();
+	}
+
+	/*var authfb = firebase.auth();
+	var provider = new firebase.auth.GoogleAuthProvider();*/
 
 	/*$scope.signInWithGoogle = function(){
 		var provider = new firebase.auth.GoogleAuthProvider();
@@ -21,20 +46,12 @@ app.controller("loginCtrl", function($scope){
 		  });
 
 		console.log('Sign in with Google !');
-	}*/
+	}
 	$scope.login= {
 		correo:'tony2006cg@gmail.com',
 		contrasena:'password'
 	};
-	$scope.user={
-		uid:'',
-		nombres:'',
-		apellidos:'',
-		empresa:'',
-		numero_contacto:'',
-		correo:'',
-		contrasena:''
-	}
+	
     $scope.sigIn = function(){
 	    var email = $scope.login.correo;
 	    var password = $scope.login.contrasena;
@@ -48,8 +65,12 @@ app.controller("loginCtrl", function($scope){
 	      // Handle Errors here.
 	      var errorCode = error.code;
 	      var errorMessage = error.message;
+	      //$location.path('#/bienvenido');
+	      
 	      // ...
 	    });
+	    $location.path('/bienvenido');
+	    console.log('LOGUEADO!!!');
 	    console.log('Sign in the user!');
 	  };  
 	$scope.signOut = function(){
@@ -60,6 +81,6 @@ app.controller("loginCtrl", function($scope){
 	firebase.auth().onAuthStateChanged(function(user){
 		var user = user;
 		console.log('Cambios escuchados, user : ', user);
-		console.log('Cambios escuchados, uid user : ', user.uid);
-	});  	
+		//console.log('Cambios escuchados, uid user : ', user.uid);
+	});  */	
 });

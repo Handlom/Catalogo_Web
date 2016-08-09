@@ -1,7 +1,7 @@
 <div id="message" ng-controller="loginCtrl">
       <h1>Bienvenido a Handlom, {{saludo}}</h1>
       <p>Usted debe de identificarse para poder ingresar al sistema. Gracias.</p>  
-      <form ng-submit="sigIn()">
+      <form ng-submit="loginUser()">
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email/Correo</label>
 		    <input type="email" ng-model="login.correo" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -15,5 +15,5 @@
 		<center>
 		<button type="button" class="btn btn-danger">Iniciar sesión con Google</button>
 		</center><br>
-		<button type="button" ng-click="signOut()" class="btn btn-danger">Cerrar sesión</button>
+		<button type="button" ng-click="logoutUser()" class="btn btn-danger">Cerrar sesión</button>
 </div>

@@ -10,8 +10,28 @@ var app = angular.module("app", [
 			templateUrl: 'templates/login.html',
 			controller:'loginCtrl'
 		})
+		.when('/bienvenido', {
+			templateUrl: 'templates/bienvenido.html'
+		})
 
 		.otherwise({
 			redirectTo: '/'
 		});
+})
+.run(function($rootScope, $location, sessionControl){
+	var rutasPrivadas = ['/bienvenido'];
+
+	$rootScope.$on('$routeChangeStart', function(){
+		//Si en el path es igual a una ruta privada y si mi logueo es falso entro al if
+		//Si mi path es diferente al una ruta privada y mi logueo es true no entro al if 
+		//Si el path y las rutasPrivadas no son iguales devolvera -1
+		if (($.inArray($location.path(), rutasPrivadas) !== -1) && sessionControl.statusUser()===null) {
+			console.log('dentro del 1er if: '+sessionControl.statusUser());
+			console.error('Debe iniciar sesión para poder continuar');
+			$location.path('/');
+		
+			
+		}else {sessionControl.isLoggedInTrue();}
+		
+	});
 });
