@@ -5,7 +5,7 @@ app.controller("loginCtrl", function($scope){
 	var authfb = firebase.auth();
 	var provider = new firebase.auth.GoogleAuthProvider();
 
-	$scope.signInWithGoogle = function(){
+	/*$scope.signInWithGoogle = function(){
 		var provider = new firebase.auth.GoogleAuthProvider();
 		provider.addScope('profile');
 		provider.addScope('email');
@@ -21,16 +21,45 @@ app.controller("loginCtrl", function($scope){
 		  });
 
 		console.log('Sign in with Google !');
+	}*/
+	$scope.login= {
+		correo:'tony2006cg@gmail.com',
+		contrasena:'password'
+	};
+	$scope.user={
+		uid:'',
+		nombres:'',
+		apellidos:'',
+		empresa:'',
+		numero_contacto:'',
+		correo:'',
+		contrasena:''
 	}
-      
+    $scope.sigIn = function(){
+	    var email = $scope.login.correo;
+	    var password = $scope.login.contrasena;
+	    console.log('email:'+email);
+	    console.log('password:'+password);
+	    if (!email || !password) {
+	      return console.error('email and password required');
+	    }
+	    //Sign i user
+	    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+	      // Handle Errors here.
+	      var errorCode = error.code;
+	      var errorMessage = error.message;
+	      // ...
+	    });
+	    console.log('Sign in the user!');
+	  };  
 	$scope.signOut = function(){
 		firebase.auth().signOut();
 		console.log('signOut !');
 	}
-
 	//Escuchando canbios en la autenticacion
 	firebase.auth().onAuthStateChanged(function(user){
 		var user = user;
 		console.log('Cambios escuchados, user : ', user);
+		console.log('Cambios escuchados, uid user : ', user.uid);
 	});  	
 });
