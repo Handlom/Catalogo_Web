@@ -23,9 +23,10 @@ app.controller("loginCtrl", function($scope, $location, sessionControl){
 		sessionControl.sigIn(loginData);
 	}
 	
-	$scope.logoutUser = function () {
-		sessionControl.signOut();
-	}
+	
+	//sessionControl.isLoggedInTrue();
+	/*console.log(sessionControl.currentUser);
+	if (sessionControl.currentUser) {$location.path('/bienvenido');}*/
 
 	/*var authfb = firebase.auth();
 	var provider = new firebase.auth.GoogleAuthProvider();*/
