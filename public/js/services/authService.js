@@ -4,7 +4,7 @@ app.factory('sessionControl', function ($location) {
 
 	var authfb = firebase.auth();
 	var provider = new firebase.auth.GoogleAuthProvider();
-	var currentUser;
+	var currentUser = firebase.auth().currentUser;
 
 	firebase.auth().onAuthStateChanged(function(user){
 		var user = user;
@@ -23,7 +23,7 @@ app.factory('sessionControl', function ($location) {
 					});
 		},
 		isLoggedIn: function(){
-			currentUser = firebase.auth().currentUser;
+			
 			if (currentUser) {$location.path('/bienvenido');}
 			return currentUser;
 		},
@@ -57,6 +57,16 @@ app.factory('sessionControl', function ($location) {
 	    signOut: function  (){
 			firebase.auth().signOut();
 			window.location.href='/';
+		},
+		updateProfile: function(displayName, photoUrl){
+			currentUser.updateProfile({
+			displayName: displayName,
+			photoURL: photoUrl
+			}).then(function() {
+			// Update successful.
+			}, function(error) {
+			// An error happened.
+			});
 		} 
 	}
 

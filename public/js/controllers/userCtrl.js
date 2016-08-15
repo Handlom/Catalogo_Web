@@ -4,5 +4,8 @@ app.controller("userCtrl", function ($scope, sessionControl) {
 	$scope.logoutUser = function () {
 		sessionControl.signOut();
 	}
-	// body...
+
+	$scope.updateProfile = function(displayName, photoUrl){
+		
+	}
 })
