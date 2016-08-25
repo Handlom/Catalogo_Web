@@ -2,7 +2,8 @@
 
 var app = angular.module("app", [
 	'ngResource',
-	'ngRoute'
+	'ngRoute',
+	'firebase'
 ])
 .config(function ($routeProvider){
 	$routeProvider
@@ -10,11 +11,46 @@ var app = angular.module("app", [
 			templateUrl: 'templates/login.html',
 			controller:'loginCtrl'
 		})
-		.when('/bienvenido', {
-			templateUrl: 'templates/bienvenido.html',
+		.when('/categorias', {
+			templateUrl: 'templates/categorias.html',
+			controller:'categoriaCtrl'
+		})
+		.when('/formCategoria', {
+			templateUrl: 'templates/formCategoria.html',
+			controller: 'categoriaCtrl'
+		})	
+		.when('/formCategoria/:categoriaId', {
+			templateUrl: 'templates/formCategoria.html',
+			controller: 'categoriaCtrl'
+		})
+		/*.when('/formCategoria', {
+			templateUrl: 'templates/formCategoria.html',
+			controller: 'categoriaCtrl'
+		})	*/	
+		.when('/plantilla/:categoriaClave', {
+			templateUrl: 'templates/admPlantillas/plantilla.html',
+			controller: 'plantillaCtrl'
+		})
+		.when('/formPlantilla', {
+			templateUrl: 'templates/admPlantillas/formPlantilla.html',
+			controller: 'plantillaCtrl'
+		})
+		.when('/formPlantilla/:id', {
+			templateUrl: 'templates/admPlantillas/formPlantilla.html',
+			controller: 'plantillaCtrl'
+		})
+		.when('/usuarios', {
+			templateUrl: 'templates/admUsers/usuarios.html',
 			controller:'userCtrl'
 		})
-
+		.when('/formUsuario', {
+			templateUrl: 'templates/admUsers/formUsuario.html',
+			controller:'userCtrl'
+		})
+		.when('/formUsuario/:usuarioId', {
+			templateUrl: 'templates/admUsers/formUsuario.html',
+			controller:'userCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

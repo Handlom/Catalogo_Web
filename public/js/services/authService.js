@@ -3,15 +3,15 @@
 app.factory('sessionControl', function ($location) {
 
 	var authfb = firebase.auth();
-	var provider = new firebase.auth.GoogleAuthProvider();
-	var currentUser = firebase.auth().currentUser;
+	//var provider = new firebase.auth.GoogleAuthProvider();
+	var currentUser;
 
 	firebase.auth().onAuthStateChanged(function(user){
 		var user = user;
 		if (user!==null && $location.path()==='/') {
 
 			//Recargando pagina y redireccionandola
-			window.location.href='#/bienvenido';
+			window.location.href='#/categorias';
 		}		
 	});	
 
@@ -23,15 +23,15 @@ app.factory('sessionControl', function ($location) {
 					});
 		},
 		isLoggedIn: function(){
-			
-			if (currentUser) {$location.path('/bienvenido');}
+			currentUser = firebase.auth().currentUser;
+			if (currentUser) {$location.path('/categorias');}
 			return currentUser;
 		},
 		isLoggedInTrue: function () {
 			firebase.auth().onAuthStateChanged(function(user){
 				var user = user;
 				if (!user) {
-					$location.path('/bienvenido');
+					$location.path('/categorias');
 				}	
 			});		
 		},
@@ -57,16 +57,6 @@ app.factory('sessionControl', function ($location) {
 	    signOut: function  (){
 			firebase.auth().signOut();
 			window.location.href='/';
-		},
-		updateProfile: function(displayName, photoUrl){
-			currentUser.updateProfile({
-			displayName: displayName,
-			photoURL: photoUrl
-			}).then(function() {
-			// Update successful.
-			}, function(error) {
-			// An error happened.
-			});
 		} 
 	}
 

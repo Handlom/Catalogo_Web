@@ -1,0 +1,95 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Handlom</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+  
+      <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="#/categorias">Categorias</a></li>
+        <li><a href="#/usuarios">Usuarios</a></li>
+        <li><a href="">Inicio</a></li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi perfil <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href=">Action</a></li>
+            <li><a href="">Editar Perfil</a></li>
+            <li><a ng-click="logoutUser()" href="">Cerrar sesión</a></li>
+            <li role="separator" class="divider"></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<a style="" href="#/formUsario" class="btn btn-primary pull-right" role="button">Agregar Usuario</a>
+<br><br>
+
+  <div class="container">  
+    <form>
+      <h3>Datos de los usuarios</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombres del usuario</label>
+        <input type="text" ng-model="objUsuario.nombre" class="form-control" placeholder="Roger Antonio">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Apellidos del usuario</label>
+        <input type="text" ng-model="objUsuario.apellidos" class="form-control" placeholder="Canchanya García">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Cargo</label>
+        <input type="text" ng-model="objUsuario.cargo" class="form-control" placeholder="Analista Desarrollador">
+      </div> 
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo</label>
+        <input type="email" ng-model="objUsuario.correo" class="form-control" placeholder="roger.canchanya.syp@handlom.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Numero de contacto</label>
+        <input type="text" ng-model="objUsuario.celular" class="form-control" placeholder="986365243">
+      </div> 
+      <hr>
+      <h3>Datos de la cuenta</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Correo</label>
+        <input disabled="" type="email" ng-model="objUsuario.correo" class="form-control" placeholder="roger.canchanya.syp@handlom.com">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Contraseña</label>
+        <input type="password" ng-model="objUsuario.contrasena" class="form-control" placeholder="******">
+      </div>
+      <hr>
+      <h3>Datos de la empresa</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre de la Empresa</label>
+        <input type="text" ng-model="objUsuario.razonsocial" class="form-control" placeholder="Handlom">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Ruc de la empresa</label>
+        <input type="text" ng-model="objUsuario.ruc" class="form-control" placeholder="20600746538">
+      </div>
+      <div class="form-group">
+      <label for="exampleInputEmail1">Categoria/Rubro</label>
+        <select class="form-control" ng-model="objUsuario.rubro">
+          <option value="" disabled="" selected="">Seleccionar Categoria</option>
+          <option value="hoteles">Hoteles</option>
+          <option value="autos">Autos</option>
+          <option value="clinicas">Clinicas</option>
+            <!-- <option ng-repeat="cat in objBDCategoria" value="{{cat.nombreKey}}">{{cat.nombreKey}}</option> -->
+        </select>
+      </div>
+    </form>
+    <center>
+      <button type="" ng-click="agregarUsuario(objUsuario)" class="btn btn-default">Agregar</button>
+      <button type="" ng-click="actualizarUsuario(objUsuario)" class="btn btn-default">Editar</button>
+      <button type="" ng-click="cancelarForm()" class="btn btn-default">Cancelar</button>
+    </center>
+  </div>

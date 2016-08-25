@@ -2,32 +2,40 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Handlom - Catalogo Web</title>
+    <title>Welcome to Firebase Hosting</title>
     <meta name="viewport" content="width=device-width">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css">
-    <style media="screen">
-      
-    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    
   </head>
   <body ng-app="app">
-    
+
   <div ng-view=""></div>
+    <script src="angular/angular.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js">
     </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
     <script src="jquery/dist/jquery.js"></script>
-    <script src="angular/angular.js"></script>
+    
     <script src="angular/angular-resource.js"></script>
     <script src="angular/angular-route.js"></script>
     <!--
     <script src="angular/angularfire.min.js"></script>
     -->
     <script src="js/app.js"></script>
+    
     <script src="js/services/authService.js"></script>
+    <script src="js/services/crudService.js"></script>
+
     <script src="js/controllers/loginCtrl.js"></script>    
     <script src="js/controllers/userCtrl.js"></script>
+    <script src="js/controllers/categoriasCtrl.js"></script>
+    <script src="js/controllers/plantillaCtrl.js"></script>
     
     <script src="bootstrap/dist/js/bootstrap.js"></script>
      <script>
