@@ -29,39 +29,58 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
   </nav>
+	  <div class="container">
+	  	<h2>Registro de Solicitud</h2><br>
 
-  <br><br>
+	  </div>
 
   <div class="container">
-	  <form>
-	    <div class="form-group">
-	    <label for="exampleInputEmail1">Categoria</label>
-		<select class="form-control" ng-model="objPlantilla.categoria">
-			  <option value="" disabled="" selected="">Seleccionar Categoria</option>
-   			  <option ng-repeat="cat in objBDCategoria" value="{{cat.nombreKey}}">{{cat.nombreKey}}</option>
-			</select>
-	    </div>
-	    <div class="form-group">
-	      <label for="exampleInputEmail1">Nombre de la plantilla</label>
-	      <input type="text" ng-model="objPlantilla.nombre" class="form-control" placeholder="Plantilla 01">
-	    </div>
-	    <div class="form-group">
-	      <label for="exampleInputPassword1">Descripción de la plantilla</label>
-	      <textarea ng-model="objPlantilla.descripcion" class="form-control" ></textarea>
-	    </div>
-	    <div class="form-group">
-	      <label for="exampleInputFile">Imagen de previsualización:</label>
-	      <input type="file" ng-model="objPlantilla.imgPrev" >
-	      <p class="help-block">Formatos aceptados: jpg, png</p>
-	    </div>
-	    <div class="form-group">
-	      <label for="exampleInputPassword1">Url dela plantilla:</label>
-	      <input type="text" ng-model="objPlantilla.webURL" class="form-control"  placeholder="Password">
-	    </div>	    
-	  </form>
-	  <center>
-		  <button type="" ng-click="agregarPlantilla(objPlantilla)" class="btn btn-default">Agregar</button>
-		  <button type="" ng-click="actualizarPlantilla(objPlantilla)" class="btn btn-default">Editar</button>
-		  <button type="" ng-click="cancelarForm()" class="btn btn-default">Cancelar</button>
-	  </center>
+	<div class="row" >  
+		<br><br>          
+	    <div class="col-lg-3 col-sm-3 col-md-3">
+		    <form style="width:100%;">
+		    
+		    <div class="form-group">
+		      <label for="exampleInputPassword1">Descripción del HEADER</label>
+		      <textarea ng-model="objPlantilla.descripcion" class="form-control" ></textarea><br>
+		      <label class="btn btn-default btn-file">
+		      	<span class="glyphicon glyphicon-open-file"></span>
+			    Seleccionar Imagenes<input type="file" style="display: none;" ng-model="objPlantilla.imgPrev" multiple>
+			  </label>
+		      <p class="help-block">Formatos aceptados: jpg, png</p>
+		    </div>
+		    <div class="form-group">		      
+		      <label for="exampleInputPassword1">Descripción del BODY</label>
+		      <textarea ng-model="objPlantilla.descripcion" class="form-control" ></textarea><br>
+		      <label class="btn btn-default btn-file">
+			    <span class="glyphicon glyphicon-open-file"></span>
+			    Seleccionar Imagenes<input type="file" style="display: none;" ng-model="objPlantilla.imgPrev" multiple>
+			  </label>
+		      <p class="help-block">Formatos aceptados: jpg, png</p>
+		    </div>
+		    <div class="form-group">		   	  
+		      <label for="exampleInputPassword1">Descripción del FOOTER</label>
+		      <textarea ng-model="objPlantilla.descripcion" class="form-control" ></textarea><br>
+		      <label class="btn btn-default btn-file">
+			    <span class="glyphicon glyphicon-open-file"></span>
+			    Seleccionar Imagenes<input type="file" style="display: none;" ng-model="objPlantilla.imgPrev" multiple>
+			  </label>      
+		      <p class="help-block">Formatos aceptados: jpg, png</p>
+		    </div>
+		      
+		  </form>
+		  <center>
+			  <button type="" ng-click="agregarPlantilla(objPlantilla)" class="btn btn-default">Agregar</button>
+			  <button type="" ng-click="actualizarPlantilla(objPlantilla)" class="btn btn-default">Editar</button>
+			  <button type="" ng-click="cancelarForm()" class="btn btn-default">Cancelar</button>
+		  </center>
+		</div>	
+		<div class="col-lg-5 col-sm-5 col-md-5">
+		<br>
+			<img style="width:100%;" src="img/pantalla.png">
+		</div>	
+		<div class="col-lg-4 col-sm-4 col-md-4">
+			<img style="width:100%;" src="img/celular.png">
+		</div>
+	</div> 
   </div>
